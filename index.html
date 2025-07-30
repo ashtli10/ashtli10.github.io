@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=./config-v1.1.xml">
+    <title>XML Content</title>
 </head>
 <body>
-    <p>Redirecting to XML file...</p>
+    <pre id="xml-content"></pre>
+    <script>
+        fetch('./config-v1.1.xml')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('xml-content').textContent = data;
+            })
+            .catch(error => console.error('Error loading XML:', error));
+    </script>
 </body>
 </html>
